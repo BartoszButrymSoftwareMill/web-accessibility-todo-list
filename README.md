@@ -54,7 +54,7 @@ This project showcases how to build an inclusive web application that works for 
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/BartoszButrymSoftwareMill/web-accessibility-todo-list.git
 cd web-accessibility
 ```
 

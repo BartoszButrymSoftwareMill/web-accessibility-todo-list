@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple to do list app with a focus on accessibility"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Miriam+Libre:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>To Do List</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1 tabindex="-1">Your To Do List</h1>
+
+      <form action="index.html" method="post" class="form" id="form">
+        <div class="form-group">
+          <label for="text-input-field">Add a new task</label>
+          <input type="text" id="text-input-field" />
+        </div>
+        <button type="submit" class="submit-button" id="submit-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#fff"
+            width="28"
+            height="28"
+            role="img"
+            aria-labelledby="add-title"
+            aria-describedby="add-desc"
+          >
+            <title id="add-title">Add a new task</title>
+            <desc id="add-desc">Add a new task to the list</desc>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 4.5v15m7.5-7.5h-15"
+            />
+          </svg>
+        </button>
+      </form>
+
+      <div class="list-container">
+        <ul class="list" id="list-container"></ul>
+      </div>
+
+      <div class="footer">
+        <p class="remaining-tasks">
+          Your remaining tasks:
+          <span id="task-counter">0</span>
+        </p>
+        <button type="button" class="clear-button" id="clear-all-button">
+          Clear all tasks
+        </button>
+      </div>
+    </main>
+
+    <dialog id="dialog-modal" aria-label="Confirmation dialog">
+      <div class="dialog-content">
+        <button type="button" class="delete-button" id="close-dialog">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.5"
+            stroke="#0e1133"
+            width="28"
+            height="28"
+            role="img"
+            aria-labelledby="close-title"
+            aria-describedby="close-desc"
+          >
+            <title id="close-title">Close dialog</title>
+            <desc id="close-desc">Close dialog</desc>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <div class="dialog-modal-content">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#d00000"
+            width="28"
+            height="28"
+            role="img"
+            aria-labelledby="warning-title"
+            aria-describedby="warning-desc"
+          >
+            <title id="warning-title">Warning</title>
+            <desc id="warning-desc">Warning</desc>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+            />
+          </svg>
+          <p>Task title cannot be empty</p>
+        </div>
+      </div>
+    </dialog>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

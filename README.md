@@ -55,7 +55,7 @@ This project showcases how to build an inclusive web application that works for 
 
 ```bash
 git clone https://github.com/BartoszButrymSoftwareMill/web-accessibility-todo-list.git
-cd web-accessibility
+cd web-accessibility-todo-list
 ```
 
 2. Install dependencies:

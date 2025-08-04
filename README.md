@@ -44,6 +44,10 @@ This project showcases how to build an inclusive web application that works for 
 
 ## 🚀 Getting Started
 
+### Live Demo
+
+Visit the live version of the application at: [https://web-accessibility-todo-list.netlify.app/](https://web-accessibility-todo-list.netlify.app/)
+
 ### Prerequisites
 
 - Node.js (version 16 or higher)

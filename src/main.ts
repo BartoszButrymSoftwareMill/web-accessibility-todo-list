@@ -19,7 +19,7 @@ let taskCounter = 0;
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  const task = textInputField.value;
+  const task = textInputField.value.trim();
 
   if (task === '') {
     main.setAttribute('inert', '');

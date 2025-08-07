@@ -1,7 +1,7 @@
 import { deleteSvg } from './utils';
 
 const main = document.querySelector<HTMLElement>('main')!;
-const mainHeading = document.querySelector<HTMLHeadingElement>('h1')!;
+const announcement = document.getElementById('announcement')!;
 const form = document.getElementById('form')!;
 const textInputField = document.getElementById(
   'text-input-field'
@@ -29,12 +29,15 @@ form.addEventListener('submit', (event) => {
   appendNewTodo(task);
   clearInput(textInputField);
   incrementTaskCounter();
+  announcement.textContent = 'Task added';
 });
 
 clearAllButton.addEventListener('click', () => {
   listContainer.innerHTML = '';
   taskCounter = 0;
   updateTaskCounter();
+  setClearAllButtonState();
+  announcement.textContent = 'All tasks deleted';
 });
 
 listContainer.addEventListener('click', (event) => {
@@ -52,13 +55,17 @@ listContainer.addEventListener('click', (event) => {
     else incrementTaskCounter();
   } else if (deleteButton) {
     deleteButton.closest('li')!.remove();
-    mainHeading.focus();
+    announcement.textContent = 'Task deleted';
+    textInputField.focus();
 
     if (
       !(deleteButton.previousElementSibling!.children[0] as HTMLInputElement)
         .checked
-    )
+    ) {
       decrementTaskCounter();
+    }
+
+    setClearAllButtonState();
   }
 });
 
@@ -68,6 +75,7 @@ closeDialogButton.addEventListener('click', () => {
 
 dialogModal.addEventListener('close', () => {
   main.removeAttribute('inert');
+  textInputField.focus();
 });
 
 function appendNewTodo(task: string) {
@@ -88,6 +96,7 @@ function appendNewTodo(task: string) {
     class: 'delete-button',
   });
   deleteButtonElement.innerHTML = deleteSvg;
+  setClearAllButtonState();
 }
 
 function generateID() {
@@ -136,4 +145,14 @@ function incrementTaskCounter() {
 function decrementTaskCounter() {
   taskCounter--;
   updateTaskCounter();
+}
+
+function setClearAllButtonState() {
+  if (document.querySelector('li') === null) {
+    clearAllButton.setAttribute('disabled', '');
+    clearAllButton.setAttribute('aria-disabled', 'true');
+  } else {
+    clearAllButton.removeAttribute('disabled');
+    clearAllButton.removeAttribute('aria-disabled');
+  }
 }

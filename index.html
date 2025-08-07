@@ -21,51 +21,116 @@
     <title>To Do List</title>
   </head>
   <body>
-    <main class="container">
-      <h1 tabindex="-1">Your To Do List</h1>
-
-      <form action="index.html" method="post" class="form" id="form">
-        <div class="form-group">
-          <label for="text-input-field">Add a new task</label>
-          <input type="text" id="text-input-field" />
-        </div>
-        <button type="submit" class="submit-button" id="submit-button">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="#fff"
-            width="28"
-            height="28"
-            role="img"
-            aria-labelledby="add-title"
-            aria-describedby="add-desc"
+    <main>
+      <section class="landing-container">
+        <div class="image-container">
+          <img
+            src="/src/assets/web-accessibility.webp"
+            alt="Person with a screen reader viewing a website with accessible features"
+            width="400"
+            height="400"
+          />
+          <a
+            href="https://www.freepik.com/free-vector/web-accessibility-program-abstract-concept-illustration_12291244.htm"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <title id="add-title">Add a new task</title>
-            <desc id="add-desc">Add a new task to the list</desc>
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 4.5v15m7.5-7.5h-15"
-            />
-          </svg>
-        </button>
-      </form>
+            Image by vectorjuice on Freepik
+          </a>
+        </div>
 
-      <div class="list-container">
-        <ul class="list" id="list-container"></ul>
-      </div>
+        <div class="hero">
+          <header>
+            <h1 tabindex="-1">
+              Build for everyone.
+              <br />
+              Design with accessibility in mind.
+            </h1>
+          </header>
 
-      <div class="footer">
-        <p class="remaining-tasks">
-          Your remaining tasks:
-          <span id="task-counter">0</span>
-        </p>
-        <button type="button" class="clear-button" id="clear-all-button">
-          Clear all tasks
-        </button>
-      </div>
+          <p>
+            Digital accessibility isn’t just a feature — it’s a foundation.
+            Well-designed, inclusive websites work for users of all abilities,
+            in all contexts.
+          </p>
+
+          <p>
+            Explore the
+            <a
+              href="https://www.w3.org/WAI/standards-guidelines/wcag/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read more about WCAG guidelines on w3.org"
+            >
+              Web Content Accessibility Guidelines (WCAG)
+            </a>
+            to learn how to make the web better — for everyone.
+          </p>
+        </div>
+      </section>
+
+      <section class="app-container">
+        <header>
+          <h2 tabindex="-1">Your To Do List</h2>
+        </header>
+
+        <div class="form-container">
+          <form action="index.html" method="post" class="form" id="form">
+            <div class="form-group">
+              <label for="text-input-field">Add a new task</label>
+              <input type="text" id="text-input-field" />
+            </div>
+            <button type="submit" class="submit-button" id="submit-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#fff"
+                width="28"
+                height="28"
+                role="img"
+                aria-labelledby="add-title"
+                aria-describedby="add-desc"
+              >
+                <title id="add-title">Add a new task</title>
+                <desc id="add-desc">Add a new task to the list</desc>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 4.5v15m7.5-7.5h-15"
+                />
+              </svg>
+            </button>
+          </form>
+          <div
+            class="announcement"
+            role="status"
+            aria-live="polite"
+            id="announcement"
+          ></div>
+        </div>
+
+        <div class="list-container">
+          <ul class="list" id="list-container"></ul>
+        </div>
+
+        <div class="footer">
+          <p class="remaining-tasks">
+            Your remaining tasks:
+            <span id="task-counter">0</span>
+          </p>
+          <button
+            type="button"
+            class="clear-button"
+            id="clear-all-button"
+            disabled
+            aria-disabled="true"
+          >
+            Clear all tasks
+          </button>
+        </div>
+      </section>
     </main>
 
     <dialog id="dialog-modal" aria-label="Confirmation dialog">

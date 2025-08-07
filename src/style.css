@@ -7,12 +7,11 @@
 body {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #eef1f6;
   color: #0e1133;
   font-family: 'Asap', sans-serif;
   font-size: 18px;
-  overflow: hidden;
 }
 
 h1,
@@ -30,16 +29,65 @@ input[type='checkbox'] {
   cursor: pointer;
 }
 
-.container {
+main {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 40px;
+  height: 100%;
+  padding: 20px;
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.image-container a {
+  font-size: 16px;
+  color: #8797a7;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 80%;
+}
+
+.hero p {
+  color: #8797a7;
+}
+
+.app-container {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  max-width: 640px;
   width: 100%;
-  max-height: 720px;
+  max-width: 640px;
   height: 100%;
+  max-height: 720px;
   margin: 0 auto;
-  padding: 20px 15px;
 }
 
 .form {
@@ -86,7 +134,7 @@ input[type='checkbox'] {
   flex-direction: column;
   flex: 1;
   min-height: 200px;
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 400px);
   border-bottom: 1px solid #0e1133;
 }
 
@@ -147,6 +195,7 @@ input[type='checkbox']::before {
 
 input[type='checkbox']:checked + .list-item-label {
   text-decoration: line-through;
+  color: #8797a7;
 }
 
 input[type='checkbox']:checked::before {
@@ -162,6 +211,13 @@ input[type='checkbox']:checked::before {
   width: 50px;
   border: none;
   background-color: transparent;
+}
+
+.announcement {
+  height: 18px;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #8797a7;
 }
 
 .footer {
@@ -188,13 +244,19 @@ input[type='checkbox']:checked::before {
   font-size: 18px;
 }
 
+.clear-button:disabled {
+  background-color: #acb7bd;
+  cursor: not-allowed;
+}
+
+a:focus,
 .form-group input:focus,
 .form-group input:hover,
 .submit-button:focus,
 .delete-button:focus,
 .clear-button:focus,
 input[type='checkbox']:focus {
-  outline: 2px solid #35a7ff;
+  outline: 3px solid #35a7ff;
 }
 
 dialog::backdrop {
@@ -228,8 +290,10 @@ dialog p {
 }
 
 @media (min-width: 769px) {
-  .container {
-    padding: 40px 20px;
+  main {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    padding: 40px;
   }
 
   .form {
